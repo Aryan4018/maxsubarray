@@ -1,0 +1,32 @@
+#include<iostream>
+#include<climits>
+#include<vector>
+using namespace std;
+int maxsubarr(int n,vector<int> a){
+    int maxsum=INT_MIN;
+    for(int size=1;size<=n;size++){
+        for(int start = 0; start<n ; start++){
+            if(start+size>n){
+                break;
+            }
+            int sum=0;
+            for(int i = start;i<start+size;i++){
+                sum=sum+a[i];
+            }
+            maxsum= max(maxsum,sum);
+        }
+    }
+    cout<<maxsum;
+    return 0;
+}
+int main(){
+    int n;
+    cin>>n;
+    vector<int> a;
+    for(int i=0;i<n;i++){
+        int element;
+        cin>>element;
+        a.push_back(element);
+    }
+    maxsubarr(n,a);
+}
